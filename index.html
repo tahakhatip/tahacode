@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: black;
+            }
+        }
+
+        .animate-typing {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid black;
+            width: 100%;
+            animation: typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white">
+    <div class="main-container px-4 sm:px-4">
+       <!-- شريط التنقل -->
+       <nav class="bg-gradient-to-r from-green-1100 to-gray-900 fixed w-full top-0 z-50 glass-effect">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex-shrink-0">
+                    <!-- شعار الموقع -->
+                    <img class="h-8 w-8 rounded-full" src="emag/WhatsApp Image 2024-06-08 at 2.33.55 PM.jpeg">
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                    <!-- زر القائمة للأجهزة الصغيرة -->
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- أيقونة القائمة المفتوحة -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <!-- أيقونة القائمة المغلقة -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="contact" class="rounded-md bg-gradient-to-r from-gray-700 to-green-800 px-3 py-2 text-sm font-medium text-white" aria-current="page">تغير الوضع</a>
+                            <a href="projects" class="rounded-md px-3 py-2 text-sm font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">Projects</a>
+                            <a href="#خدماتنا" class="rounded-md px-3 py-2 text-sm font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">Services</a>
+                            <a href="about" class="rounded-md px-3 py-2 text-sm font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">About Us</a>
+                            <a href="#contact" class="rounded-md px-3 py-2 text-sm font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- القائمة المنسدلة للأجهزة الصغيرة -->
+        <div class="sm:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="contact" class="block rounded-md bg-gradient-to-r from-gray-700 to-green-800 px-3 py-2 text-base font-medium text-white">تغير الوضع</a>
+                <a href="projects" class="block rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">Projects</a>
+                <a href="#خدماتنا" class="block rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">Services</a>
+                <a href="about" class="block rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">About Us</a>
+                <a href="#contact" class="block rounded-md px-3 py-2 text-base font-medium text-green-600 hover:bg-gradient-to-r from-gray-700 to-green-600 hover:text-white">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+
+        <section class="h-screen w-full pt-20 px-4 sm:px-20 flex items-center justify-center">
+            <div class="flex flex-col sm:flex-row w-full justify-between items-center">
+                <div class="text-left sm:mr-10">
+                    <h1 class="text-5xl text-green-700 font-bold animate-bounce">
+                        TAHA ALKHATIB <span class="text-red-800">PROGRAMMER</span>
+                    </h1>
+                    <h5 class="text-4xl text-white mt-4 font-bold animate-typing">
+                        Developer <span class="text-red-800"> & Fullstack Designer</span>
+                    </h5>
+                    <p class="text-2xl text-gray-300 mt-8">
+                      I am a skilled full-stack developer specializing in web and application development. I also excel in social media management and graphic design, creating visually appealing and effective digital experiences.
+                       My expertise spans both front-end and back-end technologies, ensuring top-quality, user-friendly results.
+                    </p>
+                    <div class="social-icons flex mt-10">
+                        <a href="https://web.facebook.com/tahakhatip180/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="h-8 w-8 animate-bounce">
+                        </a>
+                        <a href="https://jo.linkedin.com/in/%D8%B7%D9%87-%D8%A7%D9%84%D8%AE%D8%B7%D9%8A%D8%A8-b96050288?trk=profile-badge" target="_blank">
+                            <img src="emag/linkedin_icon_127334.ico" alt="Twitter" class="h-8 w-8 animate-bounce">
+                        </a>
+                        <a href="https://github.com/tahakhatip" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="h-8 w-8 animate-bounce">
+                        </a>
+                        <a href="https://www.instagram.com/khatiptaha/?hl=ar" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="h-8 w-8 animate-bounce">
+                        </a>
+                        <a href="https://wa.me/c/962780838749" target="_blank">
+                            <img src="emag/social_media_whatsapp_logo_icon_187288.ico" alt="Instagram" class="h-8 w-8 animate-bounce">
+                        </a>
+                    </div>
+                    <button class="mt-10 px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-red-700 transition duration-300 ">
+                        HIRE ME
+                    </button>
+                </div>
+                <img class="h-48 w-48 sm:h-96 sm:w-96 rounded-full border-green-900 animate-bounce mt-10 sm:mt-0 glass-effect"
+                    src="emag/WhatsApp Image 2024-06-08 at 2.33.55 PM.jpeg"
+                    alt="Profile">
+            </div>
+        </section>
+        
+
+        <section id="projects" class="w-full px-4 sm:px-20 py-10">
+            <h2 class="text-5xl text-green-700 font-bold text-center mb-4">My Progicts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                    <a href="https://tahakhatip.github.io/almoaad/">
+                    <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/moaad1.png" alt="Project Image">
+                    <h3 class="text-2xl font-bold text-green-700 mb-2">مشروع ادارات منتجات</h3>
+                    <p class="text-gray-300 mb-4">مشروع لادارة المنتجات  والارباح  لوحة قياد   لتحليل البيانات والارباح وتغيير كلمة السر </p>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-700 transition duration-300">اعرف المزيد</button>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                    <a href="https://tahakhatip.github.io/moaad/">
+                    <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/moaad2.png" alt="">
+                    <h3 class="text-2xl font-bold text-green-600 mb-2">مشروع ادارة منتجات</h3>
+                    <p class="text-gray-300 mb-4">مشروع ادارة منتجات ارباح وضرائب</p>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-700 transition duration-300">اعرف المزيد</button>
+                    </a>
+                </div>
+                <!-- Card 3 -->
+                <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                    <a href="https://tahakhatip.github.io/taha/">
+                    <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/todo2.png" alt="Project Image">
+                    <h3 class="text-2xl font-bold text-green-700 mb-2">مشروع صغير</h3>
+                    <p class="text-gray-300 mb-4">برنامج ادارة المهام اليومية</p>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-700 transition duration-300">اعرف المزيد</button>
+                    </a>
+                </div>
+                <!-- Card 4 -->
+                <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                    <a href="https://github.com/tahakhatip">
+                    <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/todo1.png" alt="Project Image">
+                    <h3 class="text-2xl font-bold text-green-700 mb-2">مشروع ادارة</h3>
+                    <p class="text-gray-300 mb-4">مشروع اداوة مهام</p>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-700 transition duration-300">اعرف المزيد</button>
+                </a>
+                </div>
+                <!-- Card 5 -->
+                <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                    <a href="https://github.com/tahakhatip">
+                    <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/WhatsApp Image 2024-06-08 at 2.33.55 PM.jpeg" alt="Project Image">
+                    <h3 class="text-2xl font-bold text-green-700 mb-2">مستودع المشاريع </h3>
+                    <p class="text-gray-300 mb-4">مستودع يحتوي على بعض من مشاريعي على  GitHub</p>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-700 transition duration-300">اعرف المزيد</button>
+                </a>
+                </div>
+                <!-- Card 6 -->
+                <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                    <a href="https://github.com/tahakhatip">
+                    <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/front.png" alt="Project Image">
+                    <h3 class="text-2xl font-bold text-green-700 mb-2">موقع تعريفي </h3>
+                    <p class="text-gray-300 mb-4"> مقع تعريفي  هندسه محامي  طبيب شركات صغيرة</p>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-red-700 transition duration-300">اعرف المزيد</button>
+                </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="w-full px-4 sm:px-20 py-10">
+            <h2 class="text-4xl text-green-700 font-bold text-center mb-10">Services</h2>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                            <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/Social 2.png" alt="Service Image">
+                            <h3 class="text-2xl font-bold text-green-700 mb-2">خدمات السوشال ميديا</h3>
+                            <p class="text-gray-300 mb-4">مختصون في انشاء صفحات تجارية وصفحات رجال الاعمال والحملات الاعلانية مختصون SEO</p>
+                            <button class="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-red-400 transition duration-300">اعرف المزيد</button>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                            <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/social.png" alt="Service Image">
+                            <h3 class="text-2xl font-bold text-green-700 mb-2">تحليل البيانات</h3>
+                            <p class="text-gray-300 mb-4">تحليل البيانات بلغة بايثون  ودراسة المشاريع  وتقديم افضل الحلول</p>
+                            <button class="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-red-400 transition duration-300">اعرف المزيد</button>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                            <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/cod.png" alt="Service Image">
+                            <h3 class="text-2xl font-bold text-green-700 mb-2">برمجة المواقع وتطبيقات</h3>
+                            <p class="text-gray-300 mb-4">نقدم لكم افضل الحلول البرمجية  ةتطوير المواقع </p>
+                            <button class="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-red-400 transition duration-300">اعرف المزيد</button>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="card bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700 overflow-hidden transform transition duration-300">
+                            <img class="w-full h-48 object-cover rounded-lg mb-4" src="emag/j1.png" alt="Service Image">
+                            <h3 class="text-2xl font-bold text-green-700 mb-2"> javascript</h3>
+                            <p class="text-gray-300 mb-4">برمجة وتطوبر المواقع بافضل لغة في العالم back-end  front-end</p>
+                            <button type="submit" class="px-4 py-2 bg-green-700 text-white rounded-lg hover:bg-red-400 transition duration-300">اعرف المزيد</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <!-- Add Navigation -->
+            </div>
+        </section>
+
+        <section id="about" class="w-full px-4 sm:px-20 py-10">
+            <h2 class="text-4xl text-green-700 font-bold text-center mb-10">Abuote US </h2>
+            <p class="text-2xl text-gray-300 mb-10 font-bold justify-center animate-typing">
+                نحن فريق من المطورين والمصممين المتخصصين في إنشاء تطبيقات 
+                <br>ويب وتطبيقات موبايل عالية الجودة. نحن
+                ملتزمون بتقديم أفضل الحلول التقنية لعملائنا ومساعدتهم في تحقيق أهدافهم.
+            </p>
+
+            <div class="social-icons flex mt-6">
+              <a href="https://facebook.com" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="h-8 w-8 animate-bounce">
+              </a>
+              <a href="https://jo.linkedin.com/in/%D8%B7%D9%87-%D8%A7%D9%84%D8%AE%D8%B7%D9%8A%D8%A8-b96050288?trk=profile-badge" target="_blank">
+                  <img src="./emag/linkedin_icon_127334.ico" alt="Twitter" class="h-8 w-8 animate-bounce">
+              </a>
+              <a href="https://github.com/tahakhatip" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="h-8 w-8 animate-bounce">
+              </a>
+              <a href="https://www.instagram.com/khatiptaha/?hl=ar" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="h-8 w-8 animate-bounce">
+              </a>
+          </div>
+
+        </section>
+
+        <section id="contact" class="w-full px-4 sm:px-20 py-10">
+            <h2 class="text-4xl text-green-700 font-bold text-center mb-10">Contuct Us</h2>
+            <p class="text-4xl text-red-700 font-bold text-center mb-10">نسعد باقتراحاتكم لنقدم لكم الا الافضل</p>
+            <form class="max-w-xl mx-auto bg-gray-800 glass-effect p-6 rounded-lg shadow-md border border-green-700">
+                <div class="mb-4">
+                    <label for="name" class="block text-2xl font-bold text-green-700">الاسم</label>
+                    <input type="text" id="name" name="name"
+                        class="mt-1 block w-full rounded-md bg-gray-900 border-gray-700 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-white">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-2xl font-bold text-green-700">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email"
+                        class="mt-1 block w-full rounded-md bg-gray-900 border-gray-700 shadow-md focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-white">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-2xl font-bold text-green-700">رسالتك</label>
+                    <textarea id="message" name="message" rows="4"
+                        class="mt-1 block w-full rounded-md bg-gray-900 border-gray-700 shadow-md focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-white"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit"
+                        class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-green-700 transition duration-300">إرسال</button>
+                </div>
+            </form>
+            <div class="social-icons flex mt-10">
+              <a href="https://facebook.com" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="h-8 w-8 animate-bounce">
+              </a>
+              <a href="https://jo.linkedin.com/in/%D8%B7%D9%87-%D8%A7%D9%84%D8%AE%D8%B7%D9%8A%D8%A8-b96050288?trk=profile-badge" target="_blank">
+                  <img src="./emag/linkedin_icon_127334.ico" alt="Twitter" class="h-8 w-8 animate-bounce">
+              </a>
+              <a href="https://github.com/tahakhatip" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" class="h-8 w-8 animate-bounce">
+              </a>
+              <a href="https://www.instagram.com/khatiptaha/?hl=ar" target="_blank">
+                  <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" class="h-8 w-8 animate-bounce">
+              </a>
+             
+            </a>
+          </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                },
+            },
+        });
+
+
+        
+        // التحكم في القائمة المنسدلة للأجهزة الصغيرة
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const menuOpen = mobileMenu.classList.toggle('hidden');
+            if (menuOpen) {
+                mobileMenuButton.querySelector('svg:first-child').classList.add('hidden');
+                mobileMenuButton.querySelector('svg:last-child').classList.remove('hidden');
+            } else {
+                mobileMenuButton.querySelector('svg:first-child').classList.remove('hidden');
+                mobileMenuButton.querySelector('svg:last-child').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
